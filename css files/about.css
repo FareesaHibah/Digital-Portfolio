@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "NotoSerif";
+    font-style: initial;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+:root {
+    --primary-light: #f8f8f8; /* Soft white */
+    --primary-medium: #e0e0e0; /* Gentle gray */
+    --accent-sage: #a8b9a8; /* Sage */
+    --accent-eucalyptus: #8a9a8a; /* Eucalyptus */
+    --accent-dusty-rose: #d4a5a5; /* Dusty rose */
+    --text-charcoal: #333333; /* Deep charcoal */
+    --text-soft-black: #444444; /* Soft black */
+    --bg-green-light: #e0f2e9; /* Muted green for backgrounds */
+    --bg-green-dark: #cde8dc; /* Darker muted green for hover */
+
+    /* Glassmorphism variables */
+    --glass-background: rgba(255, 255, 255, 0.05);
+    --glass-backdrop-filter: blur(10px);
+    --glass-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.18);
+    --glass-card-background: rgba(255, 255, 255, 0.05);
+}
+
+body{
+    font-family: 'Raleway', sans-serif;
+    background: var(--primary-light);
+    background: url("../Images/bg.png") no-repeat center center fixed;
+    background-size: cover;
+    overflow-x: hidden;
+    padding: 40px;
+}
+
+header{
+    background: var(--glass-background);
+    color: var(--text-color);
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: var(--glass-box-shadow);
+    backdrop-filter: var(--glass-backdrop-filter);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 10%;
+    border-radius: 15px;
+    margin: 10px;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 30px;
+}
+/* 
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+  z-index: 1000;     
+} */
+
+.navbar ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+}
+
+nav a{
+    color: var(--text-charcoal);
+    font-weight: 500;
+    font-size: 18px;
+    text-decoration: none;
+    display: block;
+    padding: 5px 0;
+    transition: all .50s ease;
+    position: relative; /* Added for underline effect */
+}
+
+nav a:hover {
+    transform: translateY(-5px); /* Lift up effect for text */
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-eucalyptus); /* Underline color */
+    transition: width 0.3s ease-out;
+}
+
+nav a:hover::after {
+    width: 100%; /* Underline animation */
+}
+
+.active{
+  position: relative;
+  color: darkgreen;
+}
+
+.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%; /* Show underline by default */
+  height: 2px;
+  background-color: var(--accent-eucalyptus); /* Underline color */
+  transition: transform 0.3s ease-out;
+  transform: scaleX(1); /* Fully visible */
+  transform-origin: left;
+}
+
+.active:hover::after {
+  transform: scaleX(1.1); /* Slight stretch on hover */
+}
+
+nav li i{
+    margin-right: 8px;
+    transition: all .50s ease;
+    color: darkgreen;
+}
+
+nav li:hover i{
+    transform: scale(1.2);
+    color: darkgreen;
+}
+
+nav a i{
+    margin-right: 8px;
+    transition: all .50s ease;
+}
+
+main{
+    padding: 0 15%;
+    margin-top: 100px;
+    margin-bottom: 30px;
+}
+
+section{
+    background: var(--glass-background);
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: var(--glass-box-shadow);
+    backdrop-filter: var(--glass-backdrop-filter);
+    border: 1px solid var(--glass-border);
+}
+
+.section-title{
+    font-size: 30px;
+    font-weight: 600;
+    font-style: italic;
+    margin-bottom: 20px;
+    color: var(--main-color);
+    line-height: 1;
+    text-align: left;
+    padding: 10px;
+}
+
+.card-section h2{
+    font-size: 30px;
+    font-weight: 600;
+    font-style: italic;
+    margin-bottom: 20px;
+    color: var(--accent-eucalyptus);
+    line-height: 1;
+    text-align: left;
+    padding: 10px;
+}
+
+section p{
+    font-family: "Notoserif";
+    font-style: italic;
+    font-size: 19px;
+    color: #595656;
+    line-height: 30px;
+    margin-bottom: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .logo {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+    /* .navbar {
+        position: absolute;
+        top: -1000px;
+        right: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        text-align: left;
+        transition: all .50s ease;
+    } */
+
+    .navbar.open{
+        top: 100%;
+    }
+
+    .navbar a{
+        display: block;
+        margin: 1rem;
+        padding: 1rem;
+        border-left: 2px solid var(--secondary-color);
+    }
+/* 
+    .menu-icon{
+        display: block;
+    } */
+    
+    main {
+        padding: 0 5%;
+        margin-top: 50px;
+    }
+    
+    .section-title {
+        font-size: 24px;
+        padding: 5px;
+    }
+    
+    section p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+}
+
+#menu-icon {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--text-charcoal);
+}
+
+@media screen and (max-width: 768px) {
+  #menu-icon {
+    display: block;
+  }
+
+  /* .navbar {
+    position: relative;
+  } */
+
+  .navbar ul {
+    display: none;
+    flex-direction: column;
+    background: var(--bg-green-light);
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 1100;
+    transition: all 0.3s ease;
+  }
+
+  .navbar.open ul {
+    display: flex;
+  }
+}

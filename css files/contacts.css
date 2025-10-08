@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "NotoSerif";
+    font-style: initial;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+:root {
+    --primary-light: #f8f8f8; /* Soft white */
+    --primary-medium: #e0e0e0; /* Gentle gray */
+    --accent-sage: #a8b9a8; /* Sage */
+    --accent-eucalyptus: #8a9a8a; /* Eucalyptus */
+    --accent-dusty-rose: #d4a5a5; /* Dusty rose */
+    --text-charcoal: #333333; /* Deep charcoal */
+    --text-soft-black: #444444; /* Soft black */
+    --bg-green-light: #e0f2e9; /* Muted green for backgrounds */
+    --bg-green-dark: #cde8dc; /* Darker muted green for hover */
+
+    /* Glassmorphism variables */
+    --glass-background: rgba(255, 255, 255, 0.05);
+    --glass-backdrop-filter: blur(10px);
+    --glass-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.18);
+    --glass-card-background: rgba(255, 255, 255, 0.05);
+}
+
+body{
+    font-family: 'Raleway', sans-serif;
+    background: var(--primary-light);
+    background: url("../Images/bg.png") no-repeat center center fixed;
+    background-size: cover;
+    overflow-x: hidden;
+    padding: 40px;
+}
+
+header{
+    background: var(--glass-background);
+    color: var(--text-color);
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: var(--glass-box-shadow);
+    backdrop-filter: var(--glass-backdrop-filter);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 10%;
+    border-radius: 15px;
+    margin: 10px;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 30px;
+}
+
+.navbar ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+}
+
+nav a{
+    color: var(--text-charcoal);
+    font-weight: 500;
+    font-size: 18px;
+    text-decoration: none;
+    display: block;
+    padding: 5px 0;
+    transition: all .50s ease;
+    position: relative; /* Added for underline effect */
+}
+
+nav a:hover {
+    transform: translateY(-5px); /* Lift up effect for text */
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-eucalyptus); /* Underline color */
+    transition: width 0.3s ease-out;
+}
+
+nav a:hover::after {
+    width: 100%; /* Underline animation */
+}
+
+.active{
+  position: relative;
+  color: darkgreen;
+}
+
+.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%; /* Show underline by default */
+  height: 2px;
+  background-color: var(--accent-eucalyptus); /* Underline color */
+  transition: transform 0.3s ease-out;
+  transform: scaleX(1); /* Fully visible */
+  transform-origin: left;
+}
+
+.active:hover::after {
+  transform: scaleX(1.1); /* Slight stretch on hover */
+}
+
+nav li i{
+    margin-right: 8px;
+    transition: all .50s ease;
+    color: darkgreen;
+}
+
+nav li:hover i{
+    transform: scale(1.2);
+    color: darkgreen;
+}
+
+nav a i{
+    margin-right: 8px;
+    transition: all .50s ease;
+}
+
+main{
+    padding: 0 15%;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.contact-container {
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--glass-background);
+    box-shadow: var(--glass-box-shadow);
+    backdrop-filter: var(--glass-backdrop-filter);
+    border: 1px solid var(--glass-border);
+}
+
+.contact-info {
+    margin-bottom: 30px;
+}
+
+.contact-info h2 {
+    color: var(--accent-eucalyptus);
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contact-info p {
+    color: var(--text-color);
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-sage);
+  background-color: transparent;
+  color: var(--text-charcoal);
+  font-size: 24px;
+  transition: all 0.4s ease;
+  margin-bottom: 10px;
+}
+
+.social-links a:hover {
+  transform: translateY(-5px);
+  background-color: var(--bg-green-dark);
+  color: var(--text-charcoal);
+}
+
+.contact-form {
+    margin-top: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--main-color);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+}
+
+.form-group textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+button {
+    background-color: var(--accent-eucalyptus);
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #1873cc;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 5%;
+    }
+
+    .logo {
+        margin-bottom: 20px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    main {
+        padding: 0 5%;
+    }
+
+    .contact-container {
+        padding: 20px;
+    }
+
+}
+
+#menu-icon {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--text-charcoal);
+}
+
+@media screen and (max-width: 768px) {
+  #menu-icon {
+    display: block;
+  }
+
+  /* .navbar {
+    position: relative;
+  } */
+
+  .navbar ul {
+    display: none;
+    flex-direction: column;
+    background: var(--bg-green-light);
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 1100;
+    transition: all 0.3s ease;
+  }
+
+  .navbar.open ul {
+    display: flex;
+  }
+}
